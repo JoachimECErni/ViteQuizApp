@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|c:\\users\\extcojc\\onedrive - erni group\\desktop\\erni-epm-university\\4. frontend development\\4.1 my first web page (reactjs development)\\be-quizapp\\controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|solutionrelative:controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|c:\\users\\extcojc\\onedrive - erni group\\desktop\\erni-epm-university\\4. frontend development\\4.1 my first web page (reactjs development)\\be-quizapp\\data\\contracts\\questioncontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|solutionrelative:data\\contracts\\questioncontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|c:\\users\\extcojc\\onedrive - erni group\\desktop\\erni-epm-university\\4. frontend development\\4.1 my first web page (reactjs development)\\be-quizapp\\data\\contracts\\quizcontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|solutionrelative:data\\contracts\\quizcontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|c:\\users\\extcojc\\onedrive - erni group\\desktop\\erni-epm-university\\4. frontend development\\4.1 my first web page (reactjs development)\\be-quizapp\\repositories\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|solutionrelative:repositories\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|c:\\users\\extcojc\\onedrive - erni group\\desktop\\erni-epm-university\\4. frontend development\\4.1 my first web page (reactjs development)\\be-quizapp\\services\\quizservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|solutionrelative:services\\quizservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|c:\\users\\extcojc\\onedrive - erni group\\desktop\\erni-epm-university\\4. frontend development\\4.1 my first web page (reactjs development)\\be-quizapp\\services\\interfaces\\iquizservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|solutionrelative:services\\interfaces\\iquizservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|c:\\users\\extcojc\\onedrive - erni group\\desktop\\erni-epm-university\\4. frontend development\\4.1 my first web page (reactjs development)\\be-quizapp\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E005CAEE-906D-4BBB-B94B-D9AF8952F903}|BE-QuizApp.csproj|solutionrelative:mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "QuestionContract.cs",
+              "DocumentMoniker": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Data\\Contracts\\QuestionContract.cs",
+              "RelativeDocumentMoniker": "Data\\Contracts\\QuestionContract.cs",
+              "ToolTip": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Data\\Contracts\\QuestionContract.cs",
+              "RelativeToolTip": "Data\\Contracts\\QuestionContract.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T09:18:42.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "QuizService.cs",
+              "DocumentMoniker": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Services\\QuizService.cs",
+              "RelativeDocumentMoniker": "Services\\QuizService.cs",
+              "ToolTip": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Services\\QuizService.cs",
+              "RelativeToolTip": "Services\\QuizService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAawDYAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T08:21:17.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Mapping\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Mapping\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Mapping\\MappingProfile.cs",
+              "RelativeToolTip": "Mapping\\MappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T05:53:15.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuizContract.cs",
+              "DocumentMoniker": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Data\\Contracts\\QuizContract.cs",
+              "RelativeDocumentMoniker": "Data\\Contracts\\QuizContract.cs",
+              "ToolTip": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Data\\Contracts\\QuizContract.cs",
+              "RelativeToolTip": "Data\\Contracts\\QuizContract.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T05:51:50.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IQuizService.cs",
+              "DocumentMoniker": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Services\\Interfaces\\IQuizService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IQuizService.cs",
+              "ToolTip": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Services\\Interfaces\\IQuizService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IQuizService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T05:48:18.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuizController.cs",
+              "DocumentMoniker": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Controllers\\QuizController.cs",
+              "RelativeDocumentMoniker": "Controllers\\QuizController.cs",
+              "ToolTip": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Controllers\\QuizController.cs",
+              "RelativeToolTip": "Controllers\\QuizController.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAASwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T05:27:50.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IBaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Repositories\\Interfaces\\IBaseRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IBaseRepository.cs",
+              "ToolTip": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\Repositories\\Interfaces\\IBaseRepository.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\IBaseRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T05:26:36.901Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
