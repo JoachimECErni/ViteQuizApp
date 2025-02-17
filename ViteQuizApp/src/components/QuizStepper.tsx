@@ -11,13 +11,11 @@ function QuizStepper({
   const stepperComponents = []
   for (let i = 0; i < quizLength; i++) {
     let color =
-      i < userAnswers.length
-        ? "bg-[#388E3C] text-white"
-        : "bg-gray-500 text-black"
+      i < userAnswers.length ? "bg-blue-300" : "bg-gray-500 text-black"
     stepperComponents.push(
       <span
         key={i}
-        className={`flex items-center justify-center w-20 h-20 ${color} rounded-full `}
+        className={` flex items-center justify-center w-20 h-20 ${color} rounded-full `}
       >
         {i + 1}
       </span>

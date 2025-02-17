@@ -11,41 +11,45 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useRef } from "react"
 import SelectUpdateQuiz from "./pages/SelectUpdateQuiz"
 import UpdateQuiz from "./pages/UpdateQuiz"
+import TestPage from "./test"
 
 function App() {
   const location = useLocation()
   const contentRef = useRef<HTMLDivElement>(null)
 
   return (
-    <main className='grid grid-cols-1 mx-10 font-mono text-2xl font-semibold text-[#000000]'>
+    <main className='font-mono text-3xl md:text-2xl font-semibold text-[#000000] flex flex-col min-h-screen'>
       <Navbar />
-      <AnimatePresence mode='popLayout'>
-        <motion.div
-          className='shadow-lg rounded-2xl'
-          key={location.pathname}
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "h-full", opacity: 1 }}
-          exit={{ height: 0, opacity: 0, transition: { duration: 0.3 } }}
-        >
+      <div className='flex-grow container mx-auto p-4'>
+        <AnimatePresence mode='popLayout'>
           <motion.div
-            className='bg-[#e0e0e0] p-10 rounded-2xl'
-            ref={contentRef}
-            initial={{ scaleY: 0.95 }}
-            animate={{ scaleY: 1 }}
-            exit={{ scaleY: 0.95, transition: { duration: 0.3 } }}
+            className=''
+            key={location.pathname}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "h-full", opacity: 1 }}
+            exit={{ height: 0, opacity: 0, transition: { duration: 0.3 } }}
           >
-            <Routes location={location}>
-              <Route path='/' element={<Home />} />
-              <Route path='/quiz' element={<SelectQuiz />} />
-              <Route path='/quiz/:id' element={<Quiz />} />
-              <Route path='/create-quiz' element={<CreateQuiz />} />
-              <Route path='/delete-quiz' element={<DeleteQuiz />} />
-              <Route path='/update-quiz' element={<SelectUpdateQuiz />} />
-              <Route path='/update-quiz/:id' element={<UpdateQuiz />} />
-            </Routes>
+            <motion.div
+              className='bg-[#e0e0e0] p-10 rounded-2xl shadow-lg '
+              ref={contentRef}
+              initial={{ scaleY: 0.95 }}
+              animate={{ scaleY: 1 }}
+              exit={{ scaleY: 0.95, transition: { duration: 0.3 } }}
+            >
+              <Routes location={location}>
+                <Route path='/' element={<Home />} />
+                <Route path='/quiz' element={<SelectQuiz />} />
+                <Route path='/quiz/:id' element={<Quiz />} />
+                <Route path='/create-quiz' element={<CreateQuiz />} />
+                <Route path='/delete-quiz' element={<DeleteQuiz />} />
+                <Route path='/update-quiz' element={<SelectUpdateQuiz />} />
+                <Route path='/update-quiz/:id' element={<UpdateQuiz />} />
+                <Route path='/testing' element={<TestPage />} />
+              </Routes>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
+      </div>
     </main>
   )
 }

@@ -17,23 +17,6 @@ export interface QuizChoice {
   description: string
 }
 
-export interface ReducerQuizData {
-  id: number
-  name?: string
-  questions?: QuizQuestion[]
-}
-
-export interface ReducerQuizQuestion {
-  id: number
-  description?: string
-  choices: QuizChoice[]
-  correctChoiceID?: number
-}
-export interface ReducerQuizChoice {
-  id: number
-  description?: string
-}
-
 export interface IQuizItem {
   id: number
   name: string

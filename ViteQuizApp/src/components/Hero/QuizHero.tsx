@@ -25,7 +25,7 @@ function QuizHero({
     <div className='flex flex-col gap-y-10 text-center'>
       <h1 className='text-6xl'>{questionIndex + 1}</h1>
       <p className=''>{description}</p>
-      <div className='grid grid-cols-2 gap-y-10'>
+      <div className='grid grid-cols-1 md:grid-cols-2 md:gap-y-10'>
         {choices.map((choice) => (
           <QuizButton
             key={`${choice.id}${choice.description}}`}

@@ -94,7 +94,7 @@ function Quiz() {
 
   if (loading) return <LoadingSpinner />
 
-  if (quizData == null) return <div>Error...</div>
+  if (quizData == null) return <LoadingSpinner />
 
   return (
     <div className=''>

@@ -1,41 +1,15 @@
+import { UseFormRegister } from "react-hook-form"
 import { QuizData, QuizQuestion } from "../../data/Questions"
-import { CHOICE_CHANGE, QUESTION_CHANGE } from "../../data/QuizReducers"
 
 interface IUpdateQuizHero {
   questions: QuizQuestion[] | null
-  dispatch: Function
+  register: UseFormRegister<QuizData>
 }
 
-function UpdateQuizHero({ questions, dispatch }: IUpdateQuizHero) {
+function UpdateQuizHero({ questions, register }: IUpdateQuizHero) {
   if (!questions) return <></>
 
   const choiceList = ["Choice 1", "Choice 2", "Choice 3", "Choice 4"]
-
-  const handleDescriptionChange = (id: number, description: string) => {
-    // Dispatch an action to change the question description
-    dispatch({
-      type: QUESTION_CHANGE,
-      payload: { id, description },
-    })
-  }
-
-  const handleCorrectChoiceIDChange = (id: number, correctChoiceID: number) => {
-    dispatch({
-      type: QUESTION_CHANGE,
-      payload: { id, correctChoiceID },
-    })
-  }
-
-  const handleChoiceDescriptionChange = (
-    questionId: number,
-    choiceId: number,
-    description: string
-  ) => {
-    dispatch({
-      type: CHOICE_CHANGE,
-      payload: { questionId, choiceId, description },
-    })
-  }
 
   return (
     <>
@@ -50,9 +24,10 @@ function UpdateQuizHero({ questions, dispatch }: IUpdateQuizHero) {
             className='ring-1 rounded-2xl my-3 p-2 text-center'
             placeholder={`Enter question ${i + 1}`}
             defaultValue={question.description}
-            onChange={(e) =>
-              handleDescriptionChange(question.id, e.target.value)
-            }
+            {...register(`questions.${i}.description`)}
+            // onChange={(e) =>
+            //   handleDescriptionChange(question.id, e.target.value)
+            // }
           />
           <div className='grid grid-cols-2 grid-rows-2 gap-y-2 gap-x-2'>
             {question.choices.map((choice, index) => (
@@ -61,12 +36,9 @@ function UpdateQuizHero({ questions, dispatch }: IUpdateQuizHero) {
                   type='radio'
                   defaultChecked={choice.id === question.correctChoiceID}
                   value={choice.id}
-                  name={`question${question.id}`}
-                  onChange={() =>
-                    handleCorrectChoiceIDChange(question.id, choice.id)
-                  }
+                  {...register(`questions.${i}.correctChoiceID`)}
                   // onChange={() =>
-                  //   handleRadioChange(i, field.choices?.[index] || "")
+                  //   handleCorrectChoiceIDChange(question.id, choice.id)
                   // }
                 />
                 <input
@@ -74,13 +46,14 @@ function UpdateQuizHero({ questions, dispatch }: IUpdateQuizHero) {
                   type='text'
                   placeholder={choiceList[index]}
                   defaultValue={choice.description}
-                  onChange={(e) =>
-                    handleChoiceDescriptionChange(
-                      question.id,
-                      choice.id,
-                      e.target.value
-                    )
-                  }
+                  {...register(`questions.${i}.choices.${index}.description`)}
+                  // onChange={(e) =>
+                  //   handleChoiceDescriptionChange(
+                  //     question.id,
+                  //     choice.id,
+                  //     e.target.value
+                  //   )
+                  // }
                 />
               </div>
             ))}

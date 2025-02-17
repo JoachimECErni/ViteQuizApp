@@ -13,7 +13,7 @@ function UpdateQuizItem({
   const [isHovered, setIsHovered] = useState(false)
   return (
     <motion.button
-      className='relative w-full bg-purple-200 p-4 rounded-full flex justify-center items-center hover:cursor-pointer'
+      className='text-sm md:text-2xl rounded-4xl relative w-full bg-purple-200 p-4 flex justify-center items-center hover:cursor-pointer'
       onClick={() => handleLink(quiz.id)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

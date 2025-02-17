@@ -14,10 +14,10 @@ function SelectUpdateQuiz() {
     async function fetchAllQuiz() {
       const response = await axios.get<IQuizItem[]>(QUIZ_ENDPOINT)
       setQuizList(response.data)
+      setLoading(false)
     }
 
     fetchAllQuiz()
-    setLoading(false)
   }, [])
 
   const navigate = useNavigate()
@@ -27,31 +27,29 @@ function SelectUpdateQuiz() {
   }
 
   if (loading == null) return <LoadingSpinner />
-  if (quizList == null) return <div>No Data...</div>
+  if (quizList == null) return <LoadingSpinner />
 
   return (
     <div className='text-center flex flex-col gap-10'>
       <span>Select a Quiz!</span>
       <div
         className={`${
-          quizList.length > 0 ? "grid grid-cols-4" : ""
+          quizList.length > 0 ? "grid grid-cols-2 md:grid-cols-4" : ""
         } mt-5 gap-10`}
       >
         <AnimatePresence mode='sync'>
           {quizList.length > 0 ? (
-            quizList.map((quiz) => (
+            quizList.map((quiz, index) => (
               <motion.div
                 key={quiz.id}
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.3 } }} // Exit animation
               >
-                {quizList.map((quiz, index) => (
-                  <UpdateQuizItem
-                    quiz={quiz}
-                    handleLink={handleLink}
-                    key={index}
-                  />
-                ))}
+                <UpdateQuizItem
+                  quiz={quiz}
+                  handleLink={handleLink}
+                  key={index}
+                />
               </motion.div>
             ))
           ) : (

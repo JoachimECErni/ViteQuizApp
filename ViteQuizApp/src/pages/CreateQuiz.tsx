@@ -50,29 +50,28 @@ function CreateQuiz() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onFormSubmit)} className='grid gap-y-10'>
-        <div>
-          <div className='flex flex-col gap-y-3'>
-            <span>Quiz Name</span>
-            <hr className='w-120' />
-            <input
-              {...register("Quiz Name", { required: true })}
-              placeholder='Quiz Name'
-              className='bg-white w-96 rounded-lg text-lg p-2'
-            ></input>
-          </div>
-          <div className='flex flex-col gap-y-3 mt-3'>
-            <span>Number of Questions</span>
-            <hr className='w-120' />
-            <input
-              {...register("Number of Questions", { required: true })}
-              placeholder={`${numberOfQuestions}`}
-              defaultValue={numberOfQuestions}
-              className='bg-white w-96 rounded-lg text-lg p-2'
-            ></input>
-          </div>
+      <form
+        onSubmit={handleSubmit(onFormSubmit)}
+        className='flex flex-col gap-y-5 text-lg md:text-3xl'
+      >
+        <div className='flex flex-col gap-y-3'>
+          <span>Quiz Name</span>
+          <input
+            {...register("Quiz Name", { required: true })}
+            placeholder='Quiz Name'
+            className='bg-white max-w-96 rounded-lg text-lg p-2'
+          ></input>
         </div>
-        <div className='grid grid-cols-3 max-h-[550px] overflow-auto'>
+        <div className='flex flex-col gap-y-3'>
+          <span>Number of Questions</span>
+          <input
+            {...register("Number of Questions", { required: true })}
+            placeholder={`${numberOfQuestions}`}
+            defaultValue={numberOfQuestions}
+            className='bg-white max-w-96 rounded-lg text-lg p-2'
+          ></input>
+        </div>
+        <div className='grid grid-cols-1 md:grid-cols-3 max-h-[550px] overflow-auto'>
           <CreateQuizHero
             register={register}
             control={control}

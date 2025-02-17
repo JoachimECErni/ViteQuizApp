@@ -45,7 +45,7 @@ function DeleteQuiz() {
       <span>Delete a Quiz!</span>
       <div
         className={`${
-          quizList.length > 0 ? "grid grid-cols-4" : ""
+          quizList.length > 0 ? "grid grid-cols-2 md:grid-cols-4" : ""
         } mt-5 gap-10`}
       >
         <AnimatePresence mode='sync'>

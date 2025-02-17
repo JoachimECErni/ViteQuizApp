@@ -5,7 +5,7 @@ function QuizSummary({ data }: { data: QuizState[] }) {
   if (data == null) return <></>
 
   return (
-    <div className='bg-[#DCD7C9] text-black p-5 rounded-2xl flex flex-col gap-y-3'>
+    <div className='text-black p-5 rounded-2xl flex flex-col gap-y-3'>
       {data.map((d, index) => {
         const isCorrect =
           d.actual?.id === d.expected?.id
@@ -19,10 +19,9 @@ function QuizSummary({ data }: { data: QuizState[] }) {
               <span className=' flex w-20 items-center justify-center border-r'>
                 {d.index + 1}
               </span>
-              <div className='flex flex-grow flex-col'>
+              <div className='container flex flex-col px-5 gap-y-2'>
                 <span className=''>{d.question}</span>
-                <hr></hr>
-                <span className=''>{d.actual.description}</span>
+                <span className='underline'>{d.actual.description}</span>
                 {/* <span className='flex-none w-32'>{d.expected}</span> */}
               </div>
             </div>
