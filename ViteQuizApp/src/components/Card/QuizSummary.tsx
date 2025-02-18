@@ -5,7 +5,7 @@ function QuizSummary({ data }: { data: QuizState[] }) {
   if (data == null) return <></>
 
   return (
-    <div className='text-black p-5 rounded-2xl flex flex-col gap-y-3'>
+    <div className='text-black p-5 rounded-2xl flex flex-col gap-y-3 text-lg md:text-3xl'>
       {data.map((d, index) => {
         const isCorrect =
           d.actual?.id === d.expected?.id

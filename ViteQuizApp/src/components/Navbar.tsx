@@ -49,7 +49,7 @@ function Navbar() {
         {navList("1")}
       </div>
       <AnimatePresence>
-        <div className='container mx-auto justify-center pt-3 text-center text-2xl flex md:hidden mb-3'>
+        <div className='container mx-auto justify-center pt-3 text-center text-2xl flex md:hidden'>
           <button onClick={() => setIsOpen(!isOpen)}>
             <VscThreeBars />
           </button>

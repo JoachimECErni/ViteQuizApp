@@ -1,5 +1,10 @@
 import { useCallback, useEffect } from "react"
-import { Control, useFieldArray, UseFormRegister } from "react-hook-form"
+import {
+  Control,
+  FieldErrors,
+  useFieldArray,
+  UseFormRegister,
+} from "react-hook-form"
 import { CreateQuizForm } from "../../pages/CreateQuiz"
 import { CreateQuizQuestionFieldTemplate } from "../../data/Questions"
 
@@ -7,12 +12,14 @@ interface ICreateQuizHero {
   register: UseFormRegister<CreateQuizForm>
   control: Control<CreateQuizForm, any>
   numberOfQuestions: number
+  errors: FieldErrors<CreateQuizForm>
 }
 
 function CreateQuizHero({
   register,
   control,
   numberOfQuestions,
+  errors,
 }: ICreateQuizHero) {
   if (numberOfQuestions === undefined) return <></>
 
@@ -58,6 +65,7 @@ function CreateQuizHero({
     (questionIndex: number, choiceIndex: number, value: string) => {
       const currentQuestion = fields[questionIndex]
 
+      if (currentQuestion == null) return
       // Update the specific choice
       const updatedChoices = [...currentQuestion.choices]
 
@@ -83,7 +91,11 @@ function CreateQuizHero({
           <span>Question {i + 1}</span>
           <input
             type='text'
-            className='ring-1 rounded-2xl my-3 p-2 text-center'
+            className={`ring-1 rounded-2xl my-3 p-2 text-center ${
+              errors?.questions?.[i]?.description
+                ? "text-red-600"
+                : "text-black"
+            }`}
             {...register(`questions.${i}.description`, { required: true })}
             placeholder={`Enter question ${i + 1}`}
             onBlur={(e) => handleDescriptionChange(i, e.target.value)}
@@ -102,7 +114,11 @@ function CreateQuizHero({
                   }
                 />
                 <input
-                  className='ring-1 rounded-2xl text-center'
+                  className={`ring-1 rounded-2xl text-center ${
+                    errors?.questions?.[i]?.choices?.[index]
+                      ? "text-red-600"
+                      : "text-black"
+                  }`}
                   type='text'
                   placeholder={choice}
                   {...register(`questions.${i}.choices.${index}`, {

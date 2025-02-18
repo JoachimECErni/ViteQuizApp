@@ -15,6 +15,5 @@ namespace BE_QuizApp.Data.Entity
         public int CorrectChoiceID { get; set; }
 
         public virtual ICollection<Choice> Choices { get; set; }
-
     }
 }

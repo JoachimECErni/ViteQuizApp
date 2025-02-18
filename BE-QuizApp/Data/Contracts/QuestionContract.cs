@@ -10,18 +10,12 @@ namespace BE_QuizApp.Data.Contracts
         public required ICollection<String> Choices { get; set; }
     }
 
-    public record UpdateQuestion
+    public class UpdateQuestion
     {
         public int Id { get; set; }
-
+        public string Description { get; set; }
+        public int QuizId { get; set; }
         public int CorrectChoiceID { get; set; }
-    }
-
-    public record Create_UpdateQuestion
-    {
-        public int Id { get; set; }
-        public string? Description { get; set; }
-
-        public int? CorrectChoiceID { get; set; }
+        public virtual ICollection<UpdateChoice>? Choices { get; set; }
     }
 }

@@ -58,34 +58,19 @@ namespace BE_QuizApp.Controllers
         // PUT: api/Quiz/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PatchQuiz(UpdateQuiz updateQuiz)
+        public async Task<IActionResult> PatchQuiz(int id, UpdateQuiz updateQuiz)
         {
-            if (updateQuiz.Id == null)
-            {
+            var quiz = await _quizService.Get(id);
+
+            if (quiz == null)
+                return NotFound();
+
+            var status = await _quizService.UpdateQuizAsync(updateQuiz);
+
+            if (status == null)
                 return BadRequest();
-            }
 
-            Console.WriteLine(updateQuiz);
-
-            //_context.Entry(quiz).State = EntityState.Modified;
-
-            try
-            {
-                //await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                /*if (!QuizExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }*/
-            }
-
-            return NoContent();
+            return Ok(updateQuiz);
         }
 
         // POST: api/Quiz

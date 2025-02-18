@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BE_QuizApp.Data.Context;
 using BE_QuizApp.Data.Contracts;
 using BE_QuizApp.Data.Entity;
 using BE_QuizApp.Repositories.Interfaces;
@@ -14,13 +15,15 @@ namespace BE_QuizApp.Services
         private readonly IBaseRepository<Question> _questionRepository;
         private readonly IBaseRepository<Choice> _choiceRepository;
         private readonly IMapper _mapper;
+        private readonly AppDbContext _context;
 
-        public QuizService(IBaseRepository<Quiz> quizRepository, IBaseRepository<Question> questionRepository, IBaseRepository<Choice> choiceRepository, IMapper mapper)
+        public QuizService(IBaseRepository<Quiz> quizRepository, IBaseRepository<Question> questionRepository, IBaseRepository<Choice> choiceRepository, IMapper mapper, AppDbContext context)
         {
             _quizRepository = quizRepository;
             _questionRepository = questionRepository;
             _choiceRepository = choiceRepository;
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task<Quiz> CreateQuizAsync(CreateQuiz createQuiz)
@@ -115,6 +118,24 @@ namespace BE_QuizApp.Services
             return await _quizRepository.GetAll();
         }
 
+        public async Task<Quiz> UpdateQuizAsync(UpdateQuiz updated)
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                var original_quiz = await Get(updated.Id);
 
+                var updated_quiz = _mapper.Map(updated, original_quiz);
+
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+                return updated_quiz;
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
     }
 }

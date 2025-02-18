@@ -18,11 +18,10 @@ namespace BE_QuizApp.Data.Contracts
         public string Name { get; set; }
     }
 
-    public record UpdateQuiz
+    public class UpdateQuiz
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-        [JsonPropertyName("questions")]
-        public ICollection<CreateQuestion>? Questions { get; set; }
+        public string Name { get; set; }
+        public ICollection<UpdateQuestion>? Questions { get; set; }
     }
 }

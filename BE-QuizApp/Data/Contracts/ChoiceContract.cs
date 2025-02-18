@@ -8,4 +8,11 @@ namespace BE_QuizApp.Data.Contracts
         public required string Description { get; set; }
         public required int? QuestionId { get; set; }
     }
+
+    public class UpdateChoice
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public int QuestionId { get; set; }
+    }
 }

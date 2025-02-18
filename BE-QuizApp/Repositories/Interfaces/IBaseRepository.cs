@@ -10,5 +10,6 @@
         Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities);
 
         Task<IEnumerable<T>> UpdateRangeAsync(IEnumerable<T> entities);
+        Task SaveChangesAsync();
     }
 }

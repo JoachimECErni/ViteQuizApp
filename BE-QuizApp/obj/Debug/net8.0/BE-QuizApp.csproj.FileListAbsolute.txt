@@ -287,3 +287,4 @@ C:\Users\extcojc\OneDrive - ERNI Group\Desktop\ERNI-EPM-University\4. Frontend D
 C:\Users\extcojc\OneDrive - ERNI Group\Desktop\ERNI-EPM-University\4. Frontend Development\4.1 My First Web page (ReactJS development)\BE-QuizApp\obj\Debug\net8.0\BE-QuizApp.pdb
 C:\Users\extcojc\OneDrive - ERNI Group\Desktop\ERNI-EPM-University\4. Frontend Development\4.1 My First Web page (ReactJS development)\BE-QuizApp\obj\Debug\net8.0\BE-QuizApp.genruntimeconfig.cache
 C:\Users\extcojc\OneDrive - ERNI Group\Desktop\ERNI-EPM-University\4. Frontend Development\4.1 My First Web page (ReactJS development)\BE-QuizApp\obj\Debug\net8.0\ref\BE-QuizApp.dll
+C:\Users\extcojc\OneDrive - ERNI Group\Desktop\ERNI-EPM-University\4. Frontend Development\4.1 My First Web page (ReactJS development)\BE-QuizApp\obj\Debug\net8.0\BE-QuizApp.sourcelink.json

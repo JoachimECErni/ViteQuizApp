@@ -10,5 +10,6 @@ namespace BE_QuizApp.Services.Interfaces
         Task<Quiz> Get(int id);
 
         Task<Quiz>Delete(int id);
+        Task<Quiz> UpdateQuizAsync(UpdateQuiz updated);
     }
 }

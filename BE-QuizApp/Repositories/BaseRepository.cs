@@ -19,14 +19,6 @@ namespace BE_QuizApp.Repositories
             await _context.SaveChangesAsync();
             return entity;
         }
-
-        /*public Task<List<T>> GetAll(params Expression<Func<T, object>>[] includes)
-        {
-            IQueryable<T> query = _context.Set<T>();
-            query = includes.Aggregate(query, (current, include) => current.Include(include));
-            return query.ToListAsync();
-        }*/
-
         public Task<List<T>> GetAll(Func<IQueryable<T>, IQueryable<T>> include = null)
         {
             IQueryable<T> query = _context.Set<T>();
@@ -43,17 +35,10 @@ namespace BE_QuizApp.Repositories
             return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == Id);
         }
 
-        /*public async Task<T> Get(int Id, params Expression<Func<T, object>>[] includes)
-        {
-            IQueryable<T> query = _context.Set<T>();
-            query = includes.Aggregate(query, (current, include) => current.Include(include));
-            return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == Id);
-        }*/
-
         public async Task<T> Update(T entity)
         {
             _context.Set<T>().Update(entity);
-            _context.SaveChanges();
+            //_context.SaveChanges();
             return entity;
         }
 
@@ -80,12 +65,14 @@ namespace BE_QuizApp.Repositories
             var entityList = entities.ToList();
 
             _context.Set<T>().UpdateRange(entities);
-            await _context.SaveChangesAsync();
+           // await _context.SaveChangesAsync();
 
             return entityList;
-
         }
 
-
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

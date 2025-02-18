@@ -7,7 +7,7 @@ import { QUIZ_ENDPOINT } from "../API/Endpoints"
 
 export interface CreateQuizQuestionField {
   description: string | undefined
-  choices: string[] | undefined[]
+  choices: (string | undefined)[]
   correctAnswer: string | undefined
 }
 
@@ -58,23 +58,36 @@ function CreateQuiz() {
           <span>Quiz Name</span>
           <input
             {...register("Quiz Name", { required: true })}
-            placeholder='Quiz Name'
-            className='bg-white max-w-96 rounded-lg text-lg p-2'
+            placeholder={"Quiz Name"}
+            className={`bg-white max-w-96 rounded-lg text-lg p-2 ${
+              errors["Quiz Name"] ? "text-red-600" : "text-black"
+            }`}
           ></input>
         </div>
         <div className='flex flex-col gap-y-3'>
           <span>Number of Questions</span>
           <input
-            {...register("Number of Questions", { required: true })}
+            {...register("Number of Questions", {
+              required: true,
+              validate: {
+                positive: (value: number) =>
+                  value > 0 || "Value must be positive",
+                maxValue: (value: number) =>
+                  value <= 100 || "Value must be less than or equal to 100",
+              },
+            })}
             placeholder={`${numberOfQuestions}`}
             defaultValue={numberOfQuestions}
-            className='bg-white max-w-96 rounded-lg text-lg p-2'
+            className={`bg-white max-w-96 rounded-lg text-lg p-2 ${
+              errors["Number of Questions"] ? "text-red-600" : "text-black"
+            }`}
           ></input>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-3 max-h-[550px] overflow-auto'>
           <CreateQuizHero
             register={register}
             control={control}
+            errors={errors}
             numberOfQuestions={numberOfQuestions}
           />
         </div>
