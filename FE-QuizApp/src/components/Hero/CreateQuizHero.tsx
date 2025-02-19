@@ -4,6 +4,7 @@ import {
   FieldErrors,
   useFieldArray,
   UseFormRegister,
+  UseFormSetValue,
 } from "react-hook-form"
 import { CreateQuizForm } from "../../pages/CreateQuiz"
 import { CreateQuizQuestionFieldTemplate } from "../../data/Questions"
@@ -13,6 +14,7 @@ interface ICreateQuizHero {
   control: Control<CreateQuizForm, any>
   numberOfQuestions: number
   errors: FieldErrors<CreateQuizForm>
+  setValue: UseFormSetValue<CreateQuizForm>
 }
 
 function CreateQuizHero({
@@ -20,6 +22,7 @@ function CreateQuizHero({
   control,
   numberOfQuestions,
   errors,
+  setValue,
 }: ICreateQuizHero) {
   if (numberOfQuestions === undefined) return <></>
 
@@ -38,48 +41,27 @@ function CreateQuizHero({
         remove(i - 1)
       }
     }
-  }, [numberOfQuestions, append, remove, fields.length])
+  }, [numberOfQuestions, fields.length, append, remove])
 
-  const handleRadioChange = useCallback(
-    (questionIndex: number, selectedChoice: string) => {
-      const currentQuestion = fields[questionIndex]
-
-      update(questionIndex, {
-        ...currentQuestion,
-        correctAnswer: selectedChoice,
-      })
-    },
-    [fields, update]
-  )
-
-  const handleDescriptionChange = (questionIndex: number, value: string) => {
-    const currentQuestion = fields[questionIndex]
-
+  const handleDescriptionChange = (
+    questionIndex: number,
+    description: string
+  ) => {
+    const selectedQuestion = fields[questionIndex]
     update(questionIndex, {
-      ...currentQuestion,
-      description: value,
+      ...selectedQuestion,
+      description: description,
     })
   }
 
-  const handleChoiceChange = useCallback(
-    (questionIndex: number, choiceIndex: number, value: string) => {
-      const currentQuestion = fields[questionIndex]
+  const handleRadioChange = (questionIndex: number, selectedChoice: string) => {
+    const selectedQuestion = fields[questionIndex]
 
-      if (currentQuestion == null) return
-      // Update the specific choice
-      const updatedChoices = [...currentQuestion.choices]
-
-      updatedChoices[choiceIndex] = value || ""
-
-      update(questionIndex, {
-        ...currentQuestion,
-        choices: updatedChoices,
-      })
-    },
-    [numberOfQuestions]
-  )
-
-  const choiceList = ["Choice 1", "Choice 2", "Choice 3", "Choice 4"]
+    update(questionIndex, {
+      ...selectedQuestion,
+      correctAnswer: selectedChoice,
+    })
+  }
 
   return (
     <>
@@ -88,46 +70,54 @@ function CreateQuizHero({
           className='bg-white flex flex-col m-2 rounded-2xl p-4 text-center'
           key={field.id}
         >
-          <span>Question {i + 1}</span>
-          <input
-            type='text'
-            className={`ring-1 rounded-2xl my-3 p-2 text-center ${
-              errors?.questions?.[i]?.description
-                ? "text-red-600"
-                : "text-black"
-            }`}
-            {...register(`questions.${i}.description`, { required: true })}
-            placeholder={`Enter question ${i + 1}`}
-            onBlur={(e) => handleDescriptionChange(i, e.target.value)}
-          />
-          <div className='grid grid-cols-2 grid-rows-2 gap-y-2 gap-x-2'>
-            {choiceList.map((choice, index) => (
-              <div className='grid grid-cols-1 gap-2' key={index}>
-                <input
-                  type='radio'
-                  value={field.choices?.[index] || ""}
-                  {...register(`questions.${i}.correctAnswer`, {
-                    required: true,
-                  })}
-                  onChange={() =>
-                    handleRadioChange(i, field.choices?.[index] || "")
-                  }
-                />
-                <input
-                  className={`ring-1 rounded-2xl text-center ${
-                    errors?.questions?.[i]?.choices?.[index]
-                      ? "text-red-600"
-                      : "text-black"
-                  }`}
-                  type='text'
-                  placeholder={choice}
-                  {...register(`questions.${i}.choices.${index}`, {
-                    required: true,
-                  })}
-                  onBlur={(e) => handleChoiceChange(i, index, e.target.value)}
-                />
-              </div>
-            ))}
+          <div key={i}>
+            <span>Question {i + 1}</span>
+            <input
+              type='text'
+              className={`ring-1 rounded-2xl my-3 p-2 text-center ${
+                errors?.questions?.[i]?.description
+                  ? "text-red-600"
+                  : "text-black"
+              }`}
+              {...register(`questions.${i}.description`, { required: true })}
+              onBlur={(e) => {
+                handleDescriptionChange(i, e.target.value)
+              }}
+              placeholder={`Enter question ${i + 1}`}
+            />
+            <div className='grid grid-cols-2 grid-rows-2 gap-y-2 gap-x-2'>
+              {field.choices?.map((choice, index) => (
+                <div className='grid grid-cols-1 gap-2' key={index}>
+                  <input
+                    type='radio'
+                    value={choice || undefined}
+                    {...register(`questions.${i}.correctAnswer`, {
+                      required: true,
+                    })}
+                    onChange={(e) => handleRadioChange(i, choice || "")}
+                    checked={field.correctAnswer === choice}
+                  />
+                  <input
+                    className={`ring-1 rounded-2xl text-center ${
+                      errors?.questions?.[i]?.choices?.[index]
+                        ? "text-red-600"
+                        : "text-black"
+                    }`}
+                    type='text'
+                    placeholder={`Choice ${index + 1}`}
+                    {...register(`questions.${i}.choices.${index}`, {
+                      required: true,
+                    })}
+                    onChange={(e) =>
+                      setValue(
+                        `questions.${i}.choices.${index}`,
+                        e.target.value
+                      )
+                    }
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       ))}

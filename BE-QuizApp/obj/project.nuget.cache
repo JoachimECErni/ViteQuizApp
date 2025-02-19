@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zdNCKQthpCg=",
+  "dgSpecHash": "J/2UGgI4Atk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\4.1 My First Web page (ReactJS development)\\BE-QuizApp\\BE-QuizApp.csproj",
+  "projectFilePath": "C:\\Users\\extcojc\\OneDrive - ERNI Group\\Desktop\\ERNI-EPM-University\\4. Frontend Development\\ViteQuizApp\\BE-QuizApp\\BE-QuizApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\extcojc\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\extcojc\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

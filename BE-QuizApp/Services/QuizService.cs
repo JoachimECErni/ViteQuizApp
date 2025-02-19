@@ -92,6 +92,8 @@ namespace BE_QuizApp.Services
 
             createdQuiz.Questions = updatedQuestions.ToList();
 
+            await _questionRepository.SaveChangesAsync();
+
 
             return createdQuiz; // Return the complete quiz object
         }

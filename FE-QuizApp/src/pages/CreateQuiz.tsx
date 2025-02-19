@@ -17,17 +17,27 @@ export interface CreateQuizForm {
   questions: CreateQuizQuestionField[]
 }
 
+const createEmptyQuizQuestion = (): CreateQuizQuestionField => ({
+  description: "",
+  choices: new Array(4).fill(""),
+  correctAnswer: "",
+})
+
 function CreateQuiz() {
+  const [numberOfQuestions, setNumberOfQuestions] = useState(0)
+  const [quizCreated, setQuizCreated] = useState(false)
+
   const {
     register,
     control,
     handleSubmit,
     watch,
+    reset,
+    setValue,
     formState: { errors },
   } = useForm<CreateQuizForm>()
-  const [numberOfQuestions, setNumberOfQuestions] = useState(0)
-  const [quizCreated, setQuizCreated] = useState(false)
 
+  const quizName = watch("Quiz Name")
   const numberOfQuestionsValue = watch("Number of Questions")
 
   const onFormSubmit: SubmitHandler<CreateQuizForm> = (data) => {
@@ -46,6 +56,14 @@ function CreateQuiz() {
 
   useEffect(() => {
     setNumberOfQuestions(numberOfQuestionsValue)
+    // reset({
+    //   "Quiz Name": quizName,
+    //   "Number of Questions": numberOfQuestionsValue,
+    //   questions: Array.from(
+    //     { length: numberOfQuestionsValue },
+    //     createEmptyQuizQuestion
+    //   ),
+    // })
   }, [numberOfQuestionsValue])
 
   return (
@@ -85,9 +103,11 @@ function CreateQuiz() {
         </div>
         <div className='grid grid-cols-1 md:grid-cols-3 max-h-[550px] overflow-auto'>
           <CreateQuizHero
+            key={"Hero-Quizzes"}
             register={register}
             control={control}
             errors={errors}
+            setValue={setValue}
             numberOfQuestions={numberOfQuestions}
           />
         </div>
